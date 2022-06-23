@@ -71,9 +71,6 @@
             "src/Repository/.gitignore"
         ]
     },
-    "doctrine/doctrine-cache-bundle": {
-        "version": "1.3.5"
-    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "3.1",
         "recipe": {
@@ -107,9 +104,6 @@
     },
     "doctrine/persistence": {
         "version": "2.3.0"
-    },
-    "doctrine/reflection": {
-        "version": "1.2.1"
     },
     "doctrine/sql-formatter": {
         "version": "1.1.2"
@@ -147,12 +141,6 @@
     "laminas/laminas-code": {
         "version": "4.5.1"
     },
-    "laminas/laminas-eventmanager": {
-        "version": "3.3.1"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.2.0"
-    },
     "lcobucci/clock": {
         "version": "2.1.0"
     },
@@ -185,12 +173,6 @@
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
-    },
-    "ocramius/package-versions": {
-        "version": "1.9.0"
-    },
-    "php": {
-        "version": "7.4"
     },
     "php-cs-fixer/diff": {
         "version": "v2.0.2"
@@ -421,11 +403,11 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.24.0"
     },
-    "symfony/polyfill-php70": {
-        "version": "v1.20.0"
-    },
     "symfony/polyfill-php81": {
         "version": "v1.24.0"
+    },
+    "symfony/polyfill-uuid": {
+        "version": "v1.26.0"
     },
     "symfony/process": {
         "version": "v6.0.2"
@@ -470,9 +452,6 @@
     "symfony/security-csrf": {
         "version": "v6.0.1"
     },
-    "symfony/security-guard": {
-        "version": "v5.3.7"
-    },
     "symfony/security-http": {
         "version": "v6.0.2"
     },
@@ -506,6 +485,9 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
+    },
+    "symfony/uid": {
+        "version": "v6.0.3"
     },
     "symfony/validator": {
         "version": "4.3",
@@ -554,11 +536,5 @@
     },
     "willdurand/negotiation": {
         "version": "3.0.0"
-    },
-    "zendframework/zend-code": {
-        "version": "3.4.1"
-    },
-    "zendframework/zend-eventmanager": {
-        "version": "3.2.1"
     }
 }
