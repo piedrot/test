@@ -19,12 +19,13 @@ class Project
         ORM\GeneratedValue(strategy: 'CUSTOM'),
         ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')
     ]
-    private $UUID;
+    private Uuid $UUID;
 
     #[Groups( ['project'] )]
     #[ORM\Column(type: 'string', length: 255)]
     private string $ProjectName;
 
+    /** @var  Collection<int, Task> */
     #[Groups( ['project'] )]
     #[ORM\OneToMany(mappedBy: 'Project', targetEntity: Task::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $Task;
@@ -58,9 +59,8 @@ class Project
         return $this;
     }
 
-    /**
-     * @return Collection|Task[]
-     */
+
+    /** @return Collection<int, Task> */
     public function getTask(): Collection
     {
         return $this->Task;

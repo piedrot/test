@@ -18,7 +18,7 @@ class TaskServicePeriodPlan
         ORM\GeneratedValue(strategy: 'CUSTOM'),
         ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')
     ]
-    private $UUID;
+    private Uuid $UUID;
 
     #[Groups( ['project'] )]
     #[ORM\Column(type: 'string', length: 255)]
@@ -26,7 +26,7 @@ class TaskServicePeriodPlan
 
     #[ORM\ManyToOne(targetEntity: TaskService::class, inversedBy: 'TaskServicePeriodPlan')]
     #[ORM\JoinColumn(name: 'TaskService_UUID', referencedColumnName: 'UUID', nullable: false)]
-    private TaskService $TaskService;
+    private ?TaskService $TaskService;
 
     public function getUUID(): ?Uuid
     {

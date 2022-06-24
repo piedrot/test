@@ -19,11 +19,13 @@ class Task
         ORM\GeneratedValue(strategy: 'CUSTOM'),
         ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')
     ]
-    private $UUID;
+    private Uuid $UUID;
 
     #[Groups( ['project'] )]
     #[ORM\Column(type: 'string', length: 255)]
     private string $TaskName;
+
+    /** @var Collection<int, TaskService> */
 
     #[Groups( ['project'] )]
     #[ORM\OneToMany(mappedBy: 'Task', targetEntity: TaskService::class, cascade: ['persist'], orphanRemoval: true)]
@@ -31,7 +33,7 @@ class Task
 
     #[ORM\ManyToOne(targetEntity: Project::class, inversedBy: 'Task')]
     #[ORM\JoinColumn(name: 'Project_UUID', referencedColumnName: 'UUID', nullable: false)]
-    private Project $Project;
+    private ?Project $Project;
 
     public function __construct()
     {
@@ -62,16 +64,19 @@ class Task
         return $this;
     }
 
-    /**
-     * @return Collection|TaskService[]
-     */
+    /** @return Collection<int, TaskService> */
     public function getTaskService(): Collection
     {
         return $this->TaskService;
     }
 
+    /**
+     * @param TaskService $taskService
+     * @return Task
+     */
     public function addTaskService(TaskService $taskService): self
     {
+        dump('SET TS');
         if (!$this->TaskService->contains($taskService)) {
             $this->TaskService[] = $taskService;
             $taskService->setTask($this);
